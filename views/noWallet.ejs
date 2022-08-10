@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- myCss.style %>
+        <title>Custom Wallet</title>
+</head>
+
+<body>
+    <div class="textArea">
+        <h1>Here you find the credential of the wallet we made for you</h1>
+        <h4>Address: <%=wallet.address%>
+        </h4>
+        <h4>Public key: <%=wallet.publicKey%>
+        </h4>
+        <h4>Private key: <%=wallet.privateKey%>
+        </h4>
+        <h4>Seed Phrase: <%=wallet.seedPhrase%>
+        </h4>
+    </div>
+    <br>
+    <div class="textArea">
+        <h1>You can also view items on your wallet at the following link:</h1>
+        <br>
+        <button class="button" onclick="window.location.href='https://testnets.opensea.io/<%=wallet.address%>';"> Here</button>
+    </div>
+    <br>
+    <div class="textArea">
+        <h1>Click here to return to the landing page:</h1>
+        <br>
+        <button class="button" onclick="window.location.href='/<%=wallet.address%>';">Here</button>
+    </div>
+</body>
+
+</html>

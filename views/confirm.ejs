@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- myCss.style %>
+        <title>Confirm page</title>
+</head>
+
+<body>
+    <div class="textArea">
+        <h1>We are sending the NFT to the address: <%=address%>
+        </h1>
+        <h2>Check your wallet after 24h from now to see it, or check the link: </h2>
+        <button class="button" onclick="window.location.href='https://testnets.opensea.io/<%=wallet.address%>';"> Here</button>
+        <h1>Click here to return to the landing page:</h1>
+        <button class="button" onclick="window.location.href='/<%=wallet.address%>';">Here</button>
+    </div>
+</body>
+
+</html>

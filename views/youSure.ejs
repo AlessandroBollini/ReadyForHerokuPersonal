@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- myCss.style %>
+        <title>Do you confirm?</title>
+</head>
+
+<body>
+    <div class="textArea">
+        <h1>Do you want to confirm this address?</h1>
+        <h2 class="confirm">
+            <%=address%>
+        </h2>
+        <button class="button" onclick="window.location.href='/<%=wallet%>/transfer';">No</button>
+        <button class="button" onclick="window.location.href='/<%=wallet%>/transferConfirmed';">yes</button>
+    </div>
+</body>
+
+</html>

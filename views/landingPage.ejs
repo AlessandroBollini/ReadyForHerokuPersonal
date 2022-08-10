@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- myCss.style %>
+        <title>NFT</title>
+</head>
+
+<body>
+    <div class="textArea">
+        <h1>Welcome to the future</h1>
+        <h3>In order to receive your NFT you have to store it on a wallet.</h3>
+        <h3>Don't worry: if you don't have one we provided creating a brand new wallet for you</h3>
+        <br>
+        <button class="button" onclick="window.location.href='/<%=address%>/transfer';">I want to use my Wallet</button>
+        <button class="button" onclick="window.location.href='/<%=address%>/credentials';">I want to use Sisal
+            Wallet</button>
+    </div>
+    <div class="textArea">
+        <h1>Here you find your nft image, to download click the button below</h1>
+        <button class="button" onclick="download()">Here</button>
+        <script>
+
+            function download() {
+                const image = '<%-image%>';
+                const file = 'img.png';
+                downloadResource(image, file);
+            }
+
+            function forceDownload(blob, filename) {
+                var a = document.createElement('a');
+                a.download = filename;
+                a.href = blob;
+                document.body.appendChild(a);
+                a.click();
+                a.remove();
+            }
+
+            function downloadResource(image, file) {
+                console.log(image);
+                console.log(file);
+                if (!file) {
+                    file = image.split('\\').pop().split('/').pop();
+                }
+                fetch(image, {
+                    headers: new Headers({
+                        'Origin': location.origin
+                    }),
+                    mode: 'cors'
+                })
+                    .then(response => response.blob())
+                    .then(blob => {
+                        let blobUrl = window.URL.createObjectURL(blob);
+                        forceDownload(blobUrl, file);
+                    })
+                    .catch(e => console.error(e));
+            }
+        </script>
+    </div>
+    <br>
+    <img class="image" alt=”Image” src="<%=image%>" style="width:-webkit-fill-available">
+    <br>
+    <br>
+</body>
+
+</html>
