@@ -49,7 +49,7 @@
                     }),
                     mode: 'cors'
                 })
-                    .then(response => response.blob())
+                    .then(response => response.blob()) 
                     .then(blob => {
                         let blobUrl = window.URL.createObjectURL(blob);
                         forceDownload(blobUrl, file);
